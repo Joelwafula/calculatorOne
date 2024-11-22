@@ -1,23 +1,25 @@
-import { Text, View,Switch,StyleSheet } from "react-native";
+import { Text, View,Switch,StyleSheet, SafeAreaView } from "react-native";
 import { ThemeContext } from "@/context/ThemeContext";
 import { useState } from "react";
 import { myColors } from "@/constants/Colors";
 import Button from "@/components/Button";
+import MyKeyboard from "@/components/MyKeyboard";
 
 export default function Index() {
   const [theme, setTheme] = useState('light')
   return (
     <ThemeContext.Provider value={theme}>
 
-    <View
+    <SafeAreaView
       style={theme === 'light'? styles.container :[styles.container,{backgroundColor:'#000', }]}
     >
     <Switch
     value ={theme === 'light'}
     onValueChange={()=> setTheme(theme === 'light' ? 'dark' : 'light')}
     />
-    <Button title="3" onPress={()=>{}}/>
-    </View>
+   
+      <MyKeyboard/>
+    </SafeAreaView>
     </ThemeContext.Provider>
   );
 }
@@ -25,7 +27,7 @@ export default function Index() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
+    justifyContent: "flex-start",
     alignItems: "center",
     backgroundColor: myColors.light,
   },
