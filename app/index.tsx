@@ -13,6 +13,12 @@ export default function Index() {
     <SafeAreaView
       style={theme === 'light'? styles.container :[styles.container,{backgroundColor:'#000', }]}
     >
+      {
+        theme === 'light'
+        ?  <Text>Switch to dark mode</Text>
+        : <Text style={{color:'white'}}>Switch to light mode</Text>
+      }
+     
     <Switch
     value ={theme === 'light'}
     onValueChange={()=> setTheme(theme === 'light' ? 'dark' : 'light')}
