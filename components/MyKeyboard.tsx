@@ -10,7 +10,7 @@ export default function MyKeyboard() {
   const [operation, setOperation] = React.useState('');
   const [result, setResult] = React.useState<number | null>(null);
   const [isContinuing, setIsContinuing] = React.useState(false); // Track if user is chaining operations
-
+//function used to append first number values
   const handleNumberPress = (buttonValue: string) => {
     if (firstNumber.length < 10) {
       setFirstNumber(firstNumber + buttonValue);
